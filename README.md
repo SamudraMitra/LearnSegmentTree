@@ -4,4 +4,6 @@
 
 ## Part 1: Basic Segment Tree:
 
-To test the code use [this problem](https://cses.fi/problemset/task/1648)
+1. Implement a segment tree in SegmentTree.h and GeneralizedSegmentTree.h
+2. cd basic_segment_tree
+3. ./judge.ps1
