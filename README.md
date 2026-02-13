@@ -6,20 +6,6 @@ This repository contains my implementations and experiments with **Segment Trees
 
 ---
 
-## 📚 Project Structure
-
-```
-.
-├─ SegmentTree.h
-├─ GeneralizedSegmentTree.h
-├─ basic_segment_tree/
-│   ├─ input/
-│   ├─ output/
-│   ├─ judge.ps1
-```
-
----
-
 ## 🚀 Part 1 — Basic Segment Tree
 
 ### Goals
