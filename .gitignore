@@ -1,4 +1,5 @@
 *.cph
 *.o
 *.exe
-./*.ps1
+auto_update_github.ps1
+auto_pull_from_git.ps1
