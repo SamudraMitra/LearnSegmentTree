@@ -62,3 +62,8 @@ Optional manual compile:
 ```bash
 g++ -std=c++17 main.cpp
 ```
+
+## Resources used to create this repo
+
+- [cses](https://cses.fi/problemset)
+- [cp algorithms](https://cp-algorithms.com/data_structures/segment_tree.html#finding-the-maximum)
