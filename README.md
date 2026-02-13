@@ -2,8 +2,7 @@
 
 This repository contains my implementations and experiments with **Segment Trees**, progressing from basic structures to more generalized and reusable designs.
 
-📖 Reference material:  
-https://cp-algorithms.com/data_structures/segment_tree.html
+📖 [Reference material](https://cp-algorithms.com/data_structures/segment_tree.html)
 
 ---
 
@@ -73,19 +72,3 @@ Optional manual compile:
 ```bash
 g++ -std=c++17 main.cpp
 ```
-
----
-
-## 📖 Learning Resources
-
-- CP-Algorithms Segment Tree guide
-- Practice problems on Codeforces / LeetCode / AtCoder
-
----
-
-## ✨ Future Plans
-
-- Lazy propagation
-- Range updates
-- Generic monoid-based segment tree
-- Performance optimizations
