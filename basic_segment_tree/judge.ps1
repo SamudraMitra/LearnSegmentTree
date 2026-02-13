@@ -13,7 +13,7 @@ function Compile-And-Run($file) {
         exit 1
     }
 
-    .\("$name.exe")
+    & ".\$name.exe"
     Write-Host ""
 }
 
