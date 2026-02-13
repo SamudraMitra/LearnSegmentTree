@@ -1,4 +1,5 @@
 Just for fun
+[Reading material](https://cp-algorithms.com/data_structures/segment_tree.html)
 
 # Learning Segment Tree
 
