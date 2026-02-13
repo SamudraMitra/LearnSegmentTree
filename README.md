@@ -47,6 +47,10 @@ cd basic_segment_tree
 
 ---
 
+## Solutions
+
+- Present in the solutions folder
+
 ## 🛠 Requirements
 
 - C++17 or later
