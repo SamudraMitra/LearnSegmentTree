@@ -1,4 +1,4 @@
-// Sarthak stalk krna buri baat hoti hai
+
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -21,11 +21,15 @@ private:
     vector<ll> tree;
     ll null_value;
     ll n;
+    ll combine(ll a, ll b)
+    {
+        return a + b;
+    }
     void update_tree(ll idx, ll val, ll node, ll left, ll right)
     {
-        tree[node] += val;
         if (left == right)
         {
+            tree[node] = val;
             return;
         }
         ll mid = (left + right) / 2;
@@ -37,6 +41,7 @@ private:
         {
             update_tree(idx, val, 2 * node + 2, mid + 1, right);
         }
+        tree[node] = combine(tree[2 * node + 1], tree[2 * node + 2]);
     }
     ll sum_tree(ll L, ll R, ll node, ll left, ll right)
     {
@@ -46,10 +51,10 @@ private:
         {
             return tree[node];
         }
-        ll mid = (left + right) / 2; // 0
+        ll mid = (left + right) / 2;
         ll leftsum = sum_tree(max(L, left), min(mid, R), 2 * node + 1, left, mid);
         ll rightsum = sum_tree(max(mid + 1, L), min(R, right), 2 * node + 2, mid + 1, right);
-        return leftsum + rightsum;
+        return combine(leftsum, rightsum);
     }
     void build(ll node, ll left, ll right)
     {
@@ -61,7 +66,7 @@ private:
         ll mid = (left + right) / 2;
         build(2 * node + 1, left, mid);
         build(2 * node + 2, mid + 1, right);
-        tree[node] = tree[2 * node + 1] + tree[2 * node + 2];
+        tree[node] = combine(tree[2 * node + 1], tree[2 * node + 2]);
     }
 
 public:
@@ -100,9 +105,7 @@ int main()
         if (ty == 1)
         {
             b++;
-            ll curr = st.sum(a, a);
-            ll delta = b - curr;
-            st.update(a, delta);
+            st.update(a, b);
         }
         else
         {
