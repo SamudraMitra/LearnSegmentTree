@@ -1,6 +1,5 @@
 param(
-    [Parameter(Mandatory=$true)]
-    [string]$msg
+    [string]$msg = "update code"
 )
 
 git add .
