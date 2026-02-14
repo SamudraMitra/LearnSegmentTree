@@ -1,6 +1,9 @@
 // DONOT TOUCH DRIVER CODE
 #include <bits/stdc++.h>
 #include "GeneralizedSegmentTree.h"
+#include <chrono>
+using namespace std;
+using namespace std::chrono;
 using namespace std;
 typedef long long ll;
 typedef long double ld;
@@ -64,6 +67,20 @@ string normalize(const string &s)
             t += c; // remove CR (windows safety)
     return t;
 }
+string trim(const string &s)
+{
+    auto start = find_if_not(s.begin(), s.end(), [](unsigned char ch)
+                             { return isspace(ch); });
+
+    auto end = find_if_not(s.rbegin(), s.rend(), [](unsigned char ch)
+                           { return isspace(ch); })
+                   .base();
+
+    if (start >= end)
+        return "";
+
+    return string(start, end);
+}
 int main()
 {
     int tests = countTests("tests");
@@ -83,7 +100,14 @@ int main()
         }
 
         ostringstream myOutput;
+        // ⏱ START TIMER
+        auto start = high_resolution_clock::now();
+
         solve(fin, myOutput);
+
+        // ⏱ END TIMER
+        auto stop = high_resolution_clock::now();
+        auto duration = duration_cast<microseconds>(stop - start);
 
         string expected((istreambuf_iterator<char>(fout)), {});
         string actual = myOutput.str();
@@ -91,8 +115,13 @@ int main()
         expected = normalize(expected);
         actual = normalize(actual);
 
+        expected = trim(expected);
+        actual = trim(actual);
+
         if (expected == actual)
-            cout << "Test " << i << ": PASS\n";
+        {
+            cout << "Test " << i << ": PASS";
+        }
         else
         {
             cout << "Test " << i << ": FAIL\n";
@@ -101,5 +130,10 @@ int main()
                  << "\nGot:\n"
                  << actual << "\n";
         }
+
+        // ⏱ Print execution time
+        cout << " | Time: " << duration.count() << " microseconds";
+        cout << " (" << duration.count() / 1000.0 << " ms)";
+        cout << "\n";
     }
 }
