@@ -1,3 +1,5 @@
+## Introduction
+
 - Now that we have implemented a trivial and a non-trivial segment tree on our own, in this module we will aim to develop a generalized approach for solving range query questions.
 
 - To solve any range query question, we will need to answer these 3 questions,.. if we can have an answer to them, then we are sorted and can use the segment tree template directly. So what are these questions?
