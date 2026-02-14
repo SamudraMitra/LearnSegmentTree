@@ -83,7 +83,7 @@ private:
         {
             return sum_tree(max(L, left), min(mid, R), 2 * node + 1, left, mid);
         }
-        else if (max(mid + 1, L) <= min(R, right))
+        else
         {
             return sum_tree(max(mid + 1, L), min(R, right), 2 * node + 2, mid + 1, right);
         }
