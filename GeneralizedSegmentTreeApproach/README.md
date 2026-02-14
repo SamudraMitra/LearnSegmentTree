@@ -16,4 +16,6 @@
 
 - As we know, a segment tree cannot have all nodes filled in all levels, if the size of the original array is not a power of 2. So, we need to know what to fill in the null nodes of the tree
 
-##
+### Let us walk through a previously done question:
+
+- We had solved the gss3 question, but let's do it again this time with a proper intuition and driving force behind the decision of storing the 4 values in the tree nodes
