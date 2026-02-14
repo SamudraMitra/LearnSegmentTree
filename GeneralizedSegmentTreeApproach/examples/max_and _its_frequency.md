@@ -26,16 +26,16 @@ struct Node{
     Node res;
     if(a.val > b.val)
     {
-    res = a;
+        res = a;
     }
     else if(a.val < b.val)
     {
-    res = b;
+        res = b;
     }
     else
     {
-    res.val = a.val;
-    res.freq = a.freq+b.freq;
+        res.val = a.val;
+        res.freq = a.freq+b.freq;
     }
     return res;
   }
