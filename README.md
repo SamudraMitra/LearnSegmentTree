@@ -30,12 +30,6 @@ This repository contains my implementations and experiments with **Segment Trees
 - g++
 - PowerShell (Windows)
 
-Optional manual compile:
-
-```bash
-g++ -std=c++17 main.cpp
-```
-
 ## Resources used to create this repo
 
 - [cses](https://cses.fi/problemset)
