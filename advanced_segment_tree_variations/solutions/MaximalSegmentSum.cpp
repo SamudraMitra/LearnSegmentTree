@@ -37,7 +37,7 @@ class SegmentTree
 private:
     vector<T> arr;
     vector<T> tree;
-    T null_value;
+    // T null_value;
     long long n;
     T combine(T a, T b)
     {
@@ -102,12 +102,11 @@ private:
     }
 
 public:
-    SegmentTree(vector<T> v, T nv)
+    SegmentTree(vector<T> v)
     {
         arr = v;
         n = arr.size();
-        null_value = nv;
-        tree.resize(4 * n, nv);
+        tree.resize(4 * n);
         build(0, 0, n - 1);
     }
     void update(long long idx, T val)
@@ -137,10 +136,7 @@ void solve(istream &in, ostream &out)
         in >> i.sum;
         i.prefix_sum = i.suffix_sum = i.max_sum = i.sum;
     }
-    Node nv;
-    nv.max_sum = nv.prefix_sum = nv.suffix_sum = ninf;
-    nv.sum = 0;
-    SegmentTree<Node> st(v, nv);
+    SegmentTree<Node> st(v);
     ll q;
     in >> q;
     while (q--)
