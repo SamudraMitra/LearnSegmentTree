@@ -36,7 +36,7 @@ void solve(istream &in, ostream &out)
     vector<ll> v(n);
     for (auto &i : v)
         in >> i;
-    SegmentTree<ll> st(v, 0);
+    SegmentTree<ll> st(v);
     while (q--)
     {
         ll ty, a, b;

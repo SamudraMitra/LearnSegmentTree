@@ -6,7 +6,7 @@ class SegmentTree
 private:
     // add fields and methods here if needed
 public:
-    SegmentTree(vector<T> v, T nullvalue)
+    SegmentTree(vector<T> v)
     {
         // add code here
     }
