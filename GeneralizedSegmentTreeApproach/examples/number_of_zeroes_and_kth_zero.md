@@ -51,3 +51,7 @@ while(lo<=hi)
 }
 cout<<ans<<"\n;
 ```
+
+- We can further optimize this query to be in O(logn).
+- We can traverse the segment tree from the root node and see if the left child has greater than or equal to k zeroes. if yes, we go to the left child. Otherwise we go to the right child
+- Finally if we reach a leaf node, we can return its the value of its range's left limit (i.e. the index of the array)
