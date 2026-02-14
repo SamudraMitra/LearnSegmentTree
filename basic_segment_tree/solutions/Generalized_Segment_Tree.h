@@ -6,7 +6,6 @@ class SegmentTree
 private:
     vector<T> arr;
     vector<T> tree;
-    T null_value;
     long long n;
     T combine(T a, T b)
     {
@@ -32,16 +31,25 @@ private:
     }
     T sum_tree(long long L, long long R, long long node, long long left, long long right)
     {
-        if (L > R)
-            return null_value;
         if ((left == L) && (right == R))
         {
             return tree[node];
         }
         long long mid = (left + right) / 2; // 0
-        T leftsum = sum_tree(max(L, left), min(mid, R), 2 * node + 1, left, mid);
-        T rightsum = sum_tree(max(mid + 1, L), min(R, right), 2 * node + 2, mid + 1, right);
-        return combine(leftsum, rightsum);
+        if ((max(L, left) <= min(mid, R)) && (max(mid + 1, L) <= min(R, right)))
+        {
+            T leftsum = sum_tree(max(L, left), min(mid, R), 2 * node + 1, left, mid);
+            T rightsum = sum_tree(max(mid + 1, L), min(R, right), 2 * node + 2, mid + 1, right);
+            return combine(leftsum, rightsum);
+        }
+        else if (max(L, left) <= min(mid, R))
+        {
+            return sum_tree(max(L, left), min(mid, R), 2 * node + 1, left, mid);
+        }
+        else
+        {
+            return sum_tree(max(mid + 1, L), min(R, right), 2 * node + 2, mid + 1, right);
+        }
     }
     void build(long long node, long long left, long long right)
     {
@@ -57,12 +65,11 @@ private:
     }
 
 public:
-    SegmentTree(vector<T> v, T nv)
+    SegmentTree(vector<T> v)
     {
         arr = v;
         n = arr.size();
-        null_value = nv;
-        tree.resize(4 * n, nv);
+        tree.resize(4 * n);
         build(0, 0, n - 1);
     }
     void update(long long idx, T val)
