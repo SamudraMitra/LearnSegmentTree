@@ -68,16 +68,25 @@ private:
     }
     T sum_tree(long long L, long long R, long long node, long long left, long long right)
     {
-        if (L > R)
-            return null_value;
         if ((left == L) && (right == R))
         {
             return tree[node];
         }
         long long mid = (left + right) / 2; // 0
-        T leftsum = sum_tree(max(L, left), min(mid, R), 2 * node + 1, left, mid);
-        T rightsum = sum_tree(max(mid + 1, L), min(R, right), 2 * node + 2, mid + 1, right);
-        return combine(leftsum, rightsum);
+        if ((max(L, left) <= min(mid, R)) && (max(mid + 1, L) <= min(R, right)))
+        {
+            T leftsum = sum_tree(max(L, left), min(mid, R), 2 * node + 1, left, mid);
+            T rightsum = sum_tree(max(mid + 1, L), min(R, right), 2 * node + 2, mid + 1, right);
+            return combine(leftsum, rightsum);
+        }
+        else if (max(L, left) <= min(mid, R))
+        {
+            return sum_tree(max(L, left), min(mid, R), 2 * node + 1, left, mid);
+        }
+        else if (max(mid + 1, L) <= min(R, right))
+        {
+            return sum_tree(max(mid + 1, L), min(R, right), 2 * node + 2, mid + 1, right);
+        }
     }
     void build(long long node, long long left, long long right)
     {
@@ -129,7 +138,8 @@ void solve(istream &in, ostream &out)
         i.prefix_sum = i.suffix_sum = i.max_sum = i.sum;
     }
     Node nv;
-    nv.max_sum = nv.prefix_sum = nv.suffix_sum = nv.sum = ninf;
+    nv.max_sum = nv.prefix_sum = nv.suffix_sum = ninf;
+    nv.sum = 0;
     SegmentTree<Node> st(v, nv);
     ll q;
     in >> q;
