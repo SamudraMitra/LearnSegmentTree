@@ -6,9 +6,33 @@ This repository contains my implementations and experiments with **Segment Trees
 
 ---
 
-## 🚀 Part 1 — Basic Segment Tree
-
 ## 🚀 Part 2 — Advanced Segment Tree Variation
+
+### Goals
+
+- Implement a non-trivial segment tree
+
+### Tasks
+
+- [ ] Solve [spoj gss3 question](https://www.spoj.com/problems/GSS3/)
+
+---
+
+## ▶️ How to Run Tests
+
+### Step 1 — Navigate
+
+```bash
+cd advanced_segment_tree_variations
+```
+
+### Step 2 — Run judge script (PowerShell)
+
+```powershell
+.\judge.ps1
+```
+
+---
 
 ## ⚙️ What the judge does
 
@@ -16,7 +40,6 @@ This repository contains my implementations and experiments with **Segment Trees
 - Runs all test cases automatically
 - Compares outputs with expected results
 - Displays PASS / FAIL for each test
-- Displays execution time
 
 ---
 
