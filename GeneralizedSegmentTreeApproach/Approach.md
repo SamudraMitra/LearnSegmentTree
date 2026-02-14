@@ -2,7 +2,7 @@
 
 - Now that we have implemented a trivial and a non-trivial segment tree on our own, in this module we will aim to develop a generalized approach for solving range query questions.
 
-- To solve any range query question, we will need to answer these 3 questions,.. if we can have an answer to them, then we are sorted and can use the segment tree template directly. So what are these questions?
+- To solve any range query question, we will need to answer these 2 questions,.. if we can have an answer to them, then we are sorted and can use the segment tree template directly. So what are these questions?
 
 ### What to store in each node of the segment tree?
 
@@ -11,10 +11,6 @@
 ### How do we merge the answer for the left tree and the right tree?
 
 - This gives us the other values we need to store in the node of the tree.
-
-### A value for the null nodes:
-
-- As we know, a segment tree cannot have all nodes filled in all levels, if the size of the original array is not a power of 2. So, we need to know what to fill in the null nodes of the tree
 
 ### Let us walk through a previously done question:
 
@@ -28,5 +24,3 @@
 - Similarly, the max suffix sum for the parent node = max(max suffix sum of left child, sum of right child + max suffix sum of left child)
 - So, for computing these 2 extra values for each node, we see we have the need for the sum of the numbers in the range of a node as well. This is enough on its own for merging. sum of parent = sum of left child + sum of right child
 - So finally we end up with 4 values [max subarray sum, max prefix sum, max suffix sum, sum]
-
-- To answer our 3rd question, we need the value of a null node. Since the question gss3 does not allow empty subarrays as answers, so we need an element with -inf value, as this wont affect the sum
