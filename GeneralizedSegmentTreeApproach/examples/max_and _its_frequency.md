@@ -23,20 +23,20 @@ struct Node{
 ```
   Node combine(Node a, Node b)
   {
-  Node res;
-  if(a.val > b.val)
-  {
-  res = a;
-  }
-  else if(a.val < b.val)
-  {
-  res = b;
-  }
-  else
-  {
-  res.val = a.val;
-  res.freq = a.freq+b.freq;
-  }
-  return res;
+    Node res;
+    if(a.val > b.val)
+    {
+    res = a;
+    }
+    else if(a.val < b.val)
+    {
+    res = b;
+    }
+    else
+    {
+    res.val = a.val;
+    res.freq = a.freq+b.freq;
+    }
+    return res;
   }
 ```
