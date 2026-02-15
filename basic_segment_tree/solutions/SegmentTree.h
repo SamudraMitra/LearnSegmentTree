@@ -68,10 +68,9 @@ private:
 public:
     SegmentTree(vector<long long> v)
     {
-        long long nv = 0;
         arr = v;
         n = arr.size();
-        tree.resize(4 * n, nv);
+        tree.resize(4 * n);
         build(0, 0, n - 1);
     }
     void update(long long idx, long long val)
